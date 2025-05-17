@@ -7,14 +7,11 @@ public class LibraryService {
 
     private List<Book> books = new ArrayList<>();
 
-    // Singleton instance
     private static LibraryService instance;
 
-    // Private constructor
     private LibraryService() {
     }
 
-    // Static method to get the single instance
     public static LibraryService getInstance() {
         if (instance == null) {
             instance = new LibraryService();
