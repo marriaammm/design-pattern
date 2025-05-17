@@ -8,6 +8,10 @@ public class Main {
         Book book2 = BookFactory.createBook("physical", "Lord of the Rings");
         Book book3 = BookFactory.createBook("historical", "Outlander");
 
+        book1 = new RareEditionDecorator(book1);
+        book2 = new IllustratedDecorator(book2);
+        book3 = new SignedCopyDecorator(book3);
+
         library.addBook(book1);
         library.addBook(book2);
 
@@ -15,20 +19,21 @@ public class Main {
         User john = new User("John", false);
         User alice = new User("Alice", true);
 
-        library.borrowBook("Harry Potter", john);
-        System.out.printf("\n" + "=============================");
-        library.returnBook("Harry Potter");
+        library.borrowBook("Harry Potter [Rare Edition]", john);
+        System.out.println("\n=============================");
+        library.returnBook("Harry Potter [Rare Edition]");
         System.out.println("=============================");
-        library.borrowBook("Lord of the Rings", john);
+        library.borrowBook("Lord of the Rings [Illustrated]", john);
         System.out.println("=============================");
         library.borrowBook("math", john);
         library.returnBook("math");
         System.out.println("=============================");
-        library.borrowBook("Lord of the Rings", alice);
+        library.borrowBook("Lord of the Rings [Illustrated]", alice);
         System.out.println("=============================");
-        library.borrowBook("Outlander", alice);
+
+        library.borrowBook("Outlander [Signed Copy]", alice);
         System.out.println("=============================");
         library.addBook(book3);
-        library.borrowBook("Outlander", alice);
+        library.borrowBook("Outlander [Signed Copy]", alice);
     }
 }
