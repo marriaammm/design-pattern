@@ -15,7 +15,7 @@ public class Main {
         library.addBook(book1);
         library.addBook(book2);
 
-        // Create users
+        // Users
         User john = new User("John", false); 
         User alice = new User("Alice", true); 
 
@@ -23,18 +23,19 @@ public class Main {
         System.out.println("\n=============================");
         library.returnBook("Harry Potter [Rare Edition]");
         System.out.println("=============================");
+
         library.borrowBook("Lord of the Rings [Illustrated]", john);
         System.out.println("=============================");
-        library.borrowBook("math", john);
-        library.returnBook("math");
-        System.out.println("=============================");
+
         library.borrowBook("Lord of the Rings [Illustrated]", alice);
+        System.out.println("=============================");
+
+        library.returnBook("Lord of the Rings [Illustrated]");
         System.out.println("=============================");
 
         ExternalBook external = new ExternalBook("Java Handbook", "Oracle", 2020, true);
         Book externalBook = new ExternalBookAdapter(external);
         library.addBook(externalBook);
-
         library.borrowBook("Java Handbook", alice);
         library.returnBook("Java Handbook");
 
