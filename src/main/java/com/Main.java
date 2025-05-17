@@ -31,8 +31,13 @@ public class Main {
         library.borrowBook("Lord of the Rings [Illustrated]", alice);
         System.out.println("=============================");
 
-        library.borrowBook("Outlander [Signed Copy]", alice); 
-        System.out.println("=============================");
+        ExternalBook external = new ExternalBook("Java Handbook", "Oracle", 2020, true);
+        Book externalBook = new ExternalBookAdapter(external);
+        library.addBook(externalBook);
+
+        library.borrowBook("Java Handbook", alice);
+        library.returnBook("Java Handbook");
+
         library.addBook(book3);
         library.borrowBook("Outlander [Signed Copy]", alice);
     }
