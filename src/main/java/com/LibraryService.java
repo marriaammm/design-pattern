@@ -7,7 +7,19 @@ public class LibraryService {
 
     private List<Book> books = new ArrayList<>();
 
-    LibraryService(){
+    // Singleton instance
+    private static LibraryService instance;
+
+    // Private constructor
+    private LibraryService() {
+    }
+
+    // Static method to get the single instance
+    public static LibraryService getInstance() {
+        if (instance == null) {
+            instance = new LibraryService();
+        }
+        return instance;
     }
 
     public void addBook(Book book) {
@@ -23,16 +35,15 @@ public class LibraryService {
         return null;
     }
 
-    public void borrowBook(String title,User user) {
+    public void borrowBook(String title, User user) {
         Book book = findBook(title);
-        if(book==null){
-            System.out.println(title+" is not found in the library.");
+        if (book == null) {
+            System.out.println(title + " is not found in the library.");
         } else if (!book.isAvailable()) {
-            System.out.println(title+" is not available.");
-        }else{
+            System.out.println(title + " is not available.");
+        } else {
             book.borrowBook(user);
         }
-
     }
 
     public void returnBook(String title) {
@@ -40,7 +51,7 @@ public class LibraryService {
         if (book != null) {
             book.returnBook();
         } else {
-            System.out.println(title+" is not found in the library.");
+            System.out.println(title + " is not found in the library.");
         }
     }
 }

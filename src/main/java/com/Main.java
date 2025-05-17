@@ -2,10 +2,12 @@ package com;
 
 public class Main {
     public static void main(String[] args) {
-        LibraryService library = new LibraryService();
+        LibraryService library = LibraryService.getInstance();  
+
         Book book = new Book("Harry Potter");
         Book physicalBook = new PhysicalBook("Lord of the Rings");
         Book historicalBook = new HistoricalBook("Outlander");
+
         library.addBook(book);
         library.addBook(physicalBook);
 
@@ -19,7 +21,6 @@ public class Main {
         System.out.println("=============================");
         library.borrowBook("Lord of the Rings",  john);
         System.out.println("=============================");
-       // library.returnBook("Lord of the Rings")
         library.borrowBook("math", john );
         library.returnBook("math");
         System.out.println("=============================");
@@ -29,7 +30,5 @@ public class Main {
         System.out.println("=============================");
         library.addBook(historicalBook);
         library.borrowBook("Outlander", Alice);
-
-
     }
 }
