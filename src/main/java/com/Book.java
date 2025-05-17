@@ -27,21 +27,22 @@ public class Book {
         if (isAvailable) {
             isAvailable = false;
             borrower = user;
-            System.out.println(user.getName() + " borrowed " + title);
+            int period = user.getLendingStrategy().getLendingPeriod();
+            System.out.println(user.getName() + " borrowed \"" + title + "\" for " + period + " days.");
         } else {
             System.out.println(title + " is currently not available.");
-            addObserver(user); 
+            addObserver(user);
             System.out.println(user.getName() + " will be notified when the book becomes available.");
         }
     }
 
     public void returnBook() {
         if (!isAvailable) {
-            System.out.println(borrower.getName() + " returned " + title);
+            System.out.println(borrower.getName() + " returned \"" + title + "\"");
             isAvailable = true;
             borrower = null;
             notifyObservers();
-            observers.clear(); 
+            observers.clear();
         } else {
             System.out.println(title + " was not borrowed.");
         }

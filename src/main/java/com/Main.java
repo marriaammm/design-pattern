@@ -16,8 +16,8 @@ public class Main {
         library.addBook(book2);
 
         // Create users
-        User john = new User("John", false);
-        User alice = new User("Alice", true);
+        User john = new User("John", false); 
+        User alice = new User("Alice", true); 
 
         library.borrowBook("Harry Potter [Rare Edition]", john);
         System.out.println("\n=============================");
@@ -31,7 +31,7 @@ public class Main {
         library.borrowBook("Lord of the Rings [Illustrated]", alice);
         System.out.println("=============================");
 
-        library.borrowBook("Outlander [Signed Copy]", alice);
+        library.borrowBook("Outlander [Signed Copy]", alice); 
         System.out.println("=============================");
         library.addBook(book3);
         library.borrowBook("Outlander [Signed Copy]", alice);
